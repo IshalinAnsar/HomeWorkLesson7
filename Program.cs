@@ -1,22 +1,59 @@
-﻿// Задача 1: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N. Использовать рекурсию, не использовать циклы.
+﻿// // Задача 1: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N. Использовать рекурсию, не использовать циклы.
+// Console.Write("Введите число M: ");
+// int m = Convert.ToInt32(Console.ReadLine());
+
+// Console.Write("Введите число N: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+
+// NaturalToLow(N1, N2);
+
+
+// void NaturalToLow(int n, int m)
+// {
+//     if (N2 > n)
+//     {
+//         return;
+//     }
+//     else
+//     {
+//         NaturalToLow(n, N1 + 1);
+//         Console.Write(N2 + " ");
+//     }
+// }
+
+
+
+
+// Задача 2: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+
 Console.Write("Введите число M: ");
 int m = Convert.ToInt32(Console.ReadLine());
 
 Console.Write("Введите число N: ");
 int n = Convert.ToInt32(Console.ReadLine());
 
-NaturalToLow(number, count);
+AkkermanFunction(m,n);
 
 
-void NaturalToLow(int n, int m)
+// вызов функции Аккермана
+void AkkermanFunction(int m, int n)
 {
-    if (count > n)
+    Console.Write(Akkerman(m, n)); 
+}
+
+// функция Аккермана
+int Akkerman(int m, int n)
+{
+    if (m == 0)
     {
-        return;
+        return n + 1;
+    }
+    else if (n == 0 && m > 0)
+    {
+        return Akkerman(m - 1, 1);
     }
     else
     {
-        NaturalToLow(n, count + 1);
-        Console.Write(count + " ");
+        return (Akkerman(m - 1, Akkerman(m, n - 1)));
     }
 }
